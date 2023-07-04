@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            position: relative;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #2cccc4;
+            color: white;
+        }
+
+        .topnav-centered a {
+            float: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .topnav-right {
+            float: right;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav a, .topnav-right {
+                float: none;
+                display: block;
+            }
+
+            .topnav-centered a {
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: none;
+            }
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="topnav">
+    <div class="topnav-right">
+        <a href="http://localhost:8086/clients" >Clients</a>
+        <a href="http://localhost:8086/orders" >Orders</a>
+        <a href="http://localhost:8086/restaurants">Restaurants</a>
+    </div>
+    <a href="#news" class="active">Home</a>
+</div>
+    <div class="container">
+    <h3>Edit a order</h3>
+    <hr/>
+    <form method="post" th:action="@{/orders/edit}" th:object="${order}">
+        <input type="hidden" name="id" th:field="*{id}">
+        <div class="form-floating">
+            <input th:field="*{summa}" type="text" name="summa" id="summa" class="form-control">
+            <label for="summa">Summa</label>
+        </div>
+        <div class="form-floating">
+            <input th:field="*{product_type}" type="text" name="product_type" id="product_type" class="form-control">
+            <label for="product_type">products</label>
+        </div>
+        <div class="form-floating">
+            <input th:field="*{tips}" type="text" name="tips" id="tips" class="form-control">
+            <label for="tips">tips</label>
+        </div>
+        <div class="form-floating">
+            <input th:field="*{clientId}" type="text" name="clientId" id="clientId" class="form-control">
+            <label for="clientId">Clients</label>
+        </div>
+        <div class="form-floating">
+            <input th:field="*{restaurantsId}" type="text" name="restaurantsId" id="restaurantsId" class="form-control">
+            <label for="restaurantsId">restaurants</label>
+        </div>
+        <button type="submit" class="btn btn-primary col-2">Save</button>
+        <input type="reset" class="btn btn-secondary">
+    </form>
+    <hr/>
+    <a th:href="@{/orders}">Back to orders</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            position: relative;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #2cccc4;
+            color: white;
+        }
+
+        .topnav-centered a {
+            float: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .topnav-right {
+            float: right;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav a, .topnav-right {
+                float: none;
+                display: block;
+            }
+
+            .topnav-centered a {
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: none;
+            }
+        }
+
+        .add-btn {
+            background-color: #24b2ab;
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .edit-btn {
+            background-color: #2cccc4;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 0px 2px;
+            cursor: pointer;
+        }
+
+        .delete-btn {
+            background-color: #d90038;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: auto;
+            cursor: pointer;
+        }
+
+        .query-btn {
+            background-color: #0012d9;
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: auto;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+<div class="topnav">
+    <div class="topnav-right">
+        <a th:href="@{'/clients'}" >Clients</a>
+        <a th:href="@{'/orders'}"  >Orders</a>
+        <a th:href="@{'/restaurants'}" >Restaurants</a>
+    </div>
+    <a href="/" class="active">Home</a>
+
+</div>
+
+<div class="alert alert-danger" th:if="${failure}">
+    <span th:text="${errormessage}">Error!</span>
+</div>
+<table class="table" style="text-align: center">
+    <thead>
+    <th>date</th>
+    <th>summa</th>
+    <th>product_type</th>
+    <th>tips</th>
+    <th>clients</th>
+    <th>buttons</th>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${allOrders}">
+        <td th:text="${order.date}"></td>
+        <td th:text="${order.summa}"></td>
+        <td th:text="${order.product_type}"></td>
+        <td th:text="${order.tips}"></td>
+        <td th:text="${order.clientId}"></td>
+        <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a th:href="@{'/orders/edit/' + ${order.id}}" >
+                    <button class="edit-btn">edit</button>
+                </a>
+
+                <form th:action="@{'/orders/delete/' + ${order.id}}" th:object="${order}" method="get" >
+                    <button class="delete-btn">Delete</button>
+                </form>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{'/orders/add'}" class="add-btn btn-info" style="margin-left: 35px;">Add Order</a>
+<br/><br/>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+</body>
+</html>

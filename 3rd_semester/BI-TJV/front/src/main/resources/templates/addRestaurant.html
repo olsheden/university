@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">    <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topnav {
+      position: relative;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #2cccc4;
+      color: white;
+    }
+
+    .topnav-centered a {
+      float: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .topnav-right {
+      float: right;
+    }
+
+    @media screen and (max-width: 600px) {
+      .topnav a, .topnav-right {
+        float: none;
+        display: block;
+      }
+
+      .topnav-centered a {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+      }
+    }
+
+
+  </style>
+
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-right">
+    <a href="http://localhost:8086/clients" >Clients</a>
+    <a href="http://localhost:8086/orders" >Orders</a>
+    <a href="http://localhost:8086/restaurants">Restaurants</a>
+  </div>
+  <a href="http://localhost:8086/" class="active">Home</a>
+
+</div>
+<div class="container">
+  <h3>Add a new restaurant</h3>
+  <hr/>
+  <form method="post" th:action="@{/restaurants/add}" th:object="${restaurant}">
+    <input type="hidden" name="id" th:field="*{id}">
+    <div class="form-floating">
+      <input th:field="*{name}" type="text" name="name" id="name" class="form-control">
+      <label for="name">Name of restaurant</label>
+    </div>
+    <div class="form-floating">
+      <input th:field="*{address}" type="text" name="address" id="address" class="form-control">
+      <label for="address">Address of restaurant</label>
+    </div>
+    <div class="form-floating">
+      <input th:field="*{orderId}" type="text" name="orderId" id="orderId" class="form-control">
+      <label for="orderId">orders</label>
+    </div>
+    <button type="submit" class="btn btn-primary col-2">Save</button>
+    <input type="reset" class="btn btn-secondary">
+  </form>
+  <hr/>
+  <a th:href="@{/restaurants}">Back to list of restaurants</a>
+</div>
+</body>
+</html>
