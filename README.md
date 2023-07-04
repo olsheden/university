@@ -8,7 +8,7 @@ This repository contains my projects completed during my studies at CVUT FIT (ye
     
     1)Program Using STL Containers: This project involved writing a program that utilized various STL containers for efficient data manipulation.
     2)C Programming Tasks: This section includes tasks implemented in the C programming language, showcasing algorithms of different complexities.
-    3)Client-Server Applications with Three-Tier Architecture: As part of the Java Technology coursework, I developed client-server applications following a three-tier architecture. The project was defended successfully.
+    3)Client-Server Applications with Three-Tier Architecture: As part of the Java Technology coursework, I developed client-server applications following a three-tier architecture.
     4)LISP Program for Solving Sudoku Puzzles: This project involved creating a program in LISP capable of solving Sudoku puzzles of any size.
 
   •4th Semester:
