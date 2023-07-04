@@ -1,0 +1,28 @@
+The application can count your mathematical expression and save the result in variables, which you can use after for next mathematical expressions.
+
+Operators:
+
+'=' - for saving result in variable
+
+'+' - for summing two numbers
+
+'-' - for subtracting two numbers
+
+'*' - for multiplying numbers
+
+'/' - for dividing numbers
+
+'#' - for rounding a number
+
+'!' - for finding a factorial of the number
+
+'%' - for finding the mod of the number
+
+'^' - for powering numbers
+
+Commands:
+/print all - to display all variables
+/print [name] - to display the certain variable and its value by its name
+/clear all - to clear all variables
+/clear [name] - to erase the certain variable and its value by its name
+/exit - to exit the program
