@@ -21,4 +21,4 @@ All my projects i have made in my university course(CVUT FIT 2021 - ?):
     
     2) Programm performing calculator that evaluate expressions of different complexity for infinite numbers
     
-    3) Programm in cryptography implented with C++ using openssl libraries
+    3) Programm in cryptography implemented with C++ using openssl libraries
