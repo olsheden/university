@@ -1,5 +1,5 @@
 # University Projects
-This repository contains my projects completed during my studies at CVUT FIT (year ?). The projects are organized according to the respective semesters in which they were undertaken.
+This repository contains my projects completed during my studies at CVUT FIT (year ?). The projects are organized according to the respective semesters in which they were undertaken. All projects represented here were successfully defended and assigned.
 
   •2nd Semester:
   
